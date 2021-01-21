@@ -15,6 +15,7 @@ class ConcertsController < ApplicationController
   # GET /concerts/new
   def new
     @concert = Concert.new
+    @groups = Group.all
   end
 
   # GET /concerts/1/edit
@@ -69,6 +70,6 @@ class ConcertsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def concert_params
-      params.require(:concert).permit(:date, :place, :attendance)
+      params.require(:concert).permit(:date, :place, :attendance, :group_id)
     end
 end

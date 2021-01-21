@@ -26,6 +26,14 @@
     <%= form.number_field :attendance %>
   </div>
 
+  <div class="field">
+    <select name="concert[group_id]">
+    <% @groups.each do |group| %>
+      <option value="<%= group.id %>"><%= group.name %></option> 
+    <% end %>
+    </select>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
