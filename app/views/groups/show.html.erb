@@ -1,9 +1,30 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @group.name %>
-</p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Concerts this month</th>
+      <th>Last concert</th>
+      <th>Maximum attendance</th>
+      <th>Longest time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @groups.each do |group| %>
+      <tr>
+        <td><%= group.name %></td>
+        <td><%= group.concerts_this_month %></td>
+        <td><%= group.last_concert %></td>
+        <td><%= group.maximum_attendance %></td>
+        <td><%= group.longest_time %></td>
+        <td><%= link_to 'Edit', edit_group_path(group) %></td>
+        <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to 'Edit', edit_group_path(@group) %> |
 <%= link_to 'Back', groups_path %>

@@ -16,7 +16,26 @@
     <%= form.text_field :name %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="field">
+    <%= form.label :members %>
+    <%= form.number_field :members %>
   </div>
-<% end %>
+
+  <div class="field">
+    <%= form.label :debut_date %>
+    <%= form.date_select :debut_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gender %>
+    <select name="group[gender]">
+      <option value="Male"> Male </option> 
+      <option value="Female"> Female </option> 
+      <option value="Group"> Group </option> 
+    </select>
+  </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>

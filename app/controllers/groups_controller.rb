@@ -10,11 +10,13 @@ class GroupsController < ApplicationController
   # GET /groups/1
   # GET /groups/1.json
   def show
+    @groups = Group.all
   end
 
   # GET /groups/new
   def new
     @group = Group.new
+    @groups = Group.all
   end
 
   # GET /groups/1/edit
@@ -69,6 +71,6 @@ class GroupsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def group_params
-      params.require(:group).permit(:name)
+      params.require(:group).permit(:name, :members, :debut_date, :gender)
     end
 end
