@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_22_173302) do
+ActiveRecord::Schema.define(version: 2021_01_22_234340) do
 
   create_table "concerts", force: :cascade do |t|
     t.date "date"
@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 2021_01_22_173302) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "members"
-    t.date "debut_date"
     t.string "gender"
   end
 

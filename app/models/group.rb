@@ -24,4 +24,8 @@ class Group < ApplicationRecord
     def longest_time
         self.concerts.map{|concert| concert.duration}.max
     end
+
+    def debut_date
+        self.concerts.map{|concert| concert.date}.min
+    end
 end
