@@ -6,7 +6,7 @@ class Group < ApplicationRecord
     end
 
     def attendance
-        self.concerts.map{|concert| concert.attendance}.sum
+        self.concerts.map{|concert| concert.attendance}
     end
 
     def concerts_this_month
