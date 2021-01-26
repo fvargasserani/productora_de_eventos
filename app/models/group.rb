@@ -1,5 +1,6 @@
 class Group < ApplicationRecord
     has_many :concerts, :dependent => :destroy
+    validates :name, :members, :gender, presence: true
 
     def my_concerts
         concerts.where(group_id: id).map{|concert| concert.id}.count
