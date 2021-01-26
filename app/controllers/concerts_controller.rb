@@ -15,7 +15,7 @@ class ConcertsController < ApplicationController
   # GET /concerts/new
   def new
     @concert = Concert.new
-    @groups = Group.all
+    @groups = Group.all 
   end
 
   # GET /concerts/1/edit

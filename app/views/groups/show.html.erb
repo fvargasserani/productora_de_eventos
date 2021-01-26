@@ -12,17 +12,15 @@
     </tr>
   </thead>
   <tbody>
-    <% @groups.each do |group| %>
-      <tr>
-        <td><%= group.name %></td>
-        <td><%= group.concerts_this_month %></td>
-        <td><%= group.last_concert %></td>
-        <td><%= group.maximum_attendance %></td>
-        <td><%= group.longest_time %></td>
-        <td><%= link_to 'Edit', edit_group_path(group) %></td>
-        <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+    <tr>
+      <td><%= @group.name %></td>
+      <td><%= @group.concerts_this_month %></td>
+      <td><%= @group.last_concert %></td>
+      <td><%= @group.maximum_attendance %></td>
+      <td><%= @group.longest_time %></td>
+      <td><%= link_to 'Edit', edit_group_path(@group) %></td>
+      <td><%= link_to 'Destroy', @group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
   </tbody>
 </table>
 

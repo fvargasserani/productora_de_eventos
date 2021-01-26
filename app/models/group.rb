@@ -2,30 +2,30 @@ class Group < ApplicationRecord
     has_many :concerts, :dependent => :destroy
 
     def my_concerts
-        self.concerts.map{|concert| concert.id}.count
+        concerts.where(group_id: id).map{|concert| concert.id}.count
     end
 
     def attendance
-        self.concerts.map{|concert| concert.attendance}
+        concerts.where(group_id: id).map{|concert| concert.attendance}
     end
 
     def concerts_this_month
-        self.concerts.map{|concert| concert.date.to_date.month}.count(Time.now.month)
+        concerts.where(group_id: id).map{|concert| concert.date.to_date.month}.count(Time.now.month)
     end
 
     def last_concert
-        self.concerts.map{|concert| concert.date.strftime("%Y:%B:%A")}.last
+        concerts.where(group_id: id).map{|concert| concert.date.strftime("%Y:%B:%A")}.last
     end
     
     def maximum_attendance
-        self.concerts.map{|concert| concert.attendance}.max
+        concerts.where(group_id: id).map{|concert| concert.attendance}.max
     end
 
     def longest_time
-        self.concerts.map{|concert| concert.duration}.max
+        concerts.where(group_id: id).map{|concert| concert.duration}.max
     end
 
     def debut_date
-        self.concerts.map{|concert| concert.date}.min
+        concerts.where(group_id: id).map{|concert| concert.date}.min
     end
 end
